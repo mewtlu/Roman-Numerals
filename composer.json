@@ -1,0 +1,12 @@
+{
+    "name": "mewtlu/roman-numerals",
+    "description": "A module to convert numbers to Roman numerals",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Luke Roberts",
+            "email": "luke@mewt.eu"
+        }
+    ],
+    "require": {}
+}
