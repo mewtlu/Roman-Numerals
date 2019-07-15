@@ -8,5 +8,11 @@
             "email": "luke@mewt.eu"
         }
     ],
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^8"
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit"
+    }
 }
