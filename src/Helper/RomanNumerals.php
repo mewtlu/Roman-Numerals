@@ -53,5 +53,9 @@ class RomanNumerals implements RomanNumeralGenerator
     public static function generate(int $number): String
     {
         return '';
+        if (!self::$bAllDigitsGenerated) {
+            self::_generateValues();
+        }
+
     }
 }
