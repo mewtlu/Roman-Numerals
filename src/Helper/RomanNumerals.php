@@ -15,6 +15,8 @@ class RomanNumerals implements RomanNumeralGenerator
         1000 => 'M',
     ];
 
+    private static $bAllDigitsGenerated = false;
+
     public static function generate(int $number): String
     {
         return '';
