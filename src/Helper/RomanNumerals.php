@@ -5,7 +5,7 @@ use \App\Interfaces\RomanNumeralGenerator;
 
 class RomanNumerals implements RomanNumeralGenerator
 {
-    const arrDigits = [
+    private static $arrDigits = [
         1 => 'I',
         5 => 'V',
         10 => 'X',
