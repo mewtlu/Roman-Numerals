@@ -50,6 +50,10 @@ class RomanNumerals implements RomanNumeralGenerator
         ksort(self::$arrDigits, 1); // numeric sort on keys
     }
 
+    /**
+     * @param  Integer $number - The value to be converted to Roman numerals
+     * @return String
+     */
     public static function generate(int $number): String
     {
         return '';
