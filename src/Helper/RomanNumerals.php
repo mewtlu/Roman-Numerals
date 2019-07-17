@@ -56,10 +56,19 @@ class RomanNumerals implements RomanNumeralGenerator
      */
     public static function generate(int $number): String
     {
-        return '';
         if (!self::$bAllDigitsGenerated) {
             self::_generateValues();
         }
 
+        $arrConvertedNumber = [];
+
+        foreach(array_reverse(self::$arrDigits, true) as $intDigit => $strDigit) {
+            while ($number >= $intDigit) {
+                $number -=  $intDigit;
+                $arrConvertedNumber[] = $strDigit;
+            }
+        }
+
+        return implode($arrConvertedNumber, '');
     }
 }
