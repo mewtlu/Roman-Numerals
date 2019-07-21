@@ -22,15 +22,16 @@ class RomanNumerals implements RomanNumeralGenerator
      *  lower than the 'known values', dependent on their magnitutde. For
      *  example we'll generate 9 from 10 - 1, 40 from 50 - 10, and 900 from 1000
      *  - 100.
+     *
      * @return Void
      */
-    private static function _generateValues(): Void
+    private static function generateValues(): Void
     {
         self::$bAllDigitsGenerated = true;
         $intLastDigit = 1;
         $intLastTenDigit = 1;
         $arrTempDigits = self::$arrDigits;
-        foreach($arrTempDigits as $intDigit => $strDigit) {
+        foreach ($arrTempDigits as $intDigit => $strDigit) {
             if ($intDigit === 1) {
                 continue;
             }
@@ -38,11 +39,15 @@ class RomanNumerals implements RomanNumeralGenerator
             $strIntDigit = substr(strval($intDigit), 0, 1);
             switch ($strIntDigit) {
                 case '1':
-                    self::$arrDigits[$intDigit - $intLastTenDigit] = self::$arrDigits[$intLastTenDigit].self::$arrDigits[$intDigit];
+                    self::$arrDigits[$intDigit - $intLastTenDigit] =
+                    self::$arrDigits[$intLastTenDigit].
+                        self::$arrDigits[$intDigit];
                     $intLastTenDigit = $intDigit;
                     break;
                 case '5':
-                    self::$arrDigits[$intDigit - $intLastDigit] = self::$arrDigits[$intLastDigit].self::$arrDigits[$intDigit];
+                    self::$arrDigits[$intDigit - $intLastDigit] =
+                    self::$arrDigits[$intLastDigit].
+                        self::$arrDigits[$intDigit];
                     break;
             }
             $intLastDigit = $intDigit;
@@ -57,12 +62,12 @@ class RomanNumerals implements RomanNumeralGenerator
     public static function generate(int $number): String
     {
         if (!self::$bAllDigitsGenerated) {
-            self::_generateValues();
+            self::generateValues();
         }
 
         $arrConvertedNumber = [];
 
-        foreach(array_reverse(self::$arrDigits, true) as $intDigit => $strDigit) {
+        foreach (array_reverse(self::$arrDigits, true) as $intDigit => $strDigit) {
             while ($number >= $intDigit) {
                 $number -=  $intDigit;
                 $arrConvertedNumber[] = $strDigit;

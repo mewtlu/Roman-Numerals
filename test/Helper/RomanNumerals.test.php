@@ -3,9 +3,12 @@ namespace App\Helper;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Test case for RomanNumerals class
+ */
 final class RomanNumeralsTest extends TestCase
 {
-    const arrTestValues = [
+    const TESTVALUES = [
         [
             'conversionInteger' => 1,
             'expectedString' => 'I',
@@ -54,7 +57,7 @@ final class RomanNumeralsTest extends TestCase
 
     public function testGenerate(): void
     {
-        foreach ($this::arrTestValues as $arrValueSet) {
+        foreach ($this::TESTVALUES as $arrValueSet) {
             $strActualConvertedValue = RomanNumerals::generate($arrValueSet['conversionInteger']);
             $this->assertEquals($arrValueSet['expectedString'], $strActualConvertedValue);
         }
